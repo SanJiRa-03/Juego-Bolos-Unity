@@ -1,44 +1,66 @@
-# Juego de los bolos · Unity 3D
+# 🎳 Juego de los Bolos en Unity 3D
 
-Simulador de bolera hecho en **Unity 3D** con **C#** para la asignatura *Tecnologías de Desarrollo de Videojuegos y Entornos Virtuales I* (UDIT, curso 2025/2026).
+Simulador de bolera desarrollado con **Unity 3D** y **C#**. El jugador mueve la bola, la lanza por la pista y derriba los bolos en una partida de tres tiradas. 🎮
 
-Lanza la bola, derriba los bolos y consigue pleno. Cada partida tiene 3 tiradas, salvo que hagas pleno (strike) en la primera.
+📌 **Contexto:** práctica individual de la asignatura *Tecnologías de Desarrollo de Videojuegos y Entornos Virtuales I* (UDIT, curso 2025/2026). La memoria del proyecto la redacté yo y está en la carpeta `docs/`.
 
-## Qué incluye
+## 🚀 Funcionalidades
 
-| Apartado | Cómo está hecho |
+* 🕹️ **Menú inicial:** el juego arranca en pausa con los botones *Jugar* y *Salir*.
+* 🎳 **Lanzamiento de la bola:** se mueve de lado a lado y se lanza con un impulso físico.
+* 💥 **Puntuación en vivo:** cuenta los bolos derribados en cada tirada.
+* 🏁 **Fin de partida:** termina a las 3 tiradas, o antes si se hace pleno (*strike*) en la primera.
+* 🧹 **Recogedor automático:** una barredora retira los bolos y los devuelve a su sitio, como en una bolera real.
+* 🔊 **Sonido:** efectos al chocar la bola y al hacer pleno.
+
+## 🧠 Cómo funciona por dentro
+
+| 🧩 Apartado | 🎯 Cómo está hecho |
 |---|---|
-| Menú y estados de juego | `MenuJuego`: pausa técnica con `Time.timeScale` hasta pulsar Jugar |
-| Control de la bola | Movimiento lateral con `Input.GetAxis` sobre el `Rigidbody` y lanzamiento con `AddForce` (`ForceMode.Impulse`) |
-| Detección de bolos caídos | Se calcula el ángulo de cada bolo con `Vector3.Angle`; si pasa de 15° respecto a la vertical, cuenta como derribado |
-| Recogedor de bolos | Corrutina que mueve la barredora, limpia la física y restaura los bolos a su posición inicial |
-| Audio | Efectos de sonido al chocar la bola y en los plenos, con `PlayOneShot` |
+| ⏸️ Estados del juego | `Time.timeScale` mantiene la pausa técnica hasta pulsar *Jugar*. |
+| ⚽ Movimiento de la bola | Lectura de `Input.GetAxis` y cambio directo de la velocidad del `Rigidbody`. |
+| 🚀 Lanzamiento | `AddForce` con `ForceMode.Impulse`. |
+| 📐 Bolos derribados | Se compara el ángulo de cada bolo con `Vector3.up`; si supera los **15°**, cuenta como caído. |
+| 🔄 Reseteo de pista | Corrutina que mueve el recogedor, limpia la física y restaura posiciones guardadas. |
+| 🔔 Audio | `AudioSource` con `PlayOneShot`. |
 
-## Estructura
+## 🛠️ Tecnologías y conceptos
 
-```
-Assets/
-├── Scripts/   MenuJuego.cs, Movimiento.cs
-├── ...
-```
+* 💻 **C#** como lenguaje y **Unity 3D** como motor.
+* ⚙️ **Físicas:** `Rigidbody`, colisiones, `isKinematic` y `Physics.SyncTransforms()`.
+* ⏱️ **Corrutinas** (`IEnumerator`) para los procesos repartidos en el tiempo.
+* 🧭 **Vectores y ángulos:** `Vector3.Angle`, `Vector3.MoveTowards` y `Quaternion`.
+* 🖼️ **Interfaz de usuario** con menú y marcador.
+* 🔊 **Audio** con efectos de sonido.
 
-## Cómo jugar
+## 🗂️ Piezas del proyecto
 
-Descarga el build para Windows desde la página del juego en itch.io (enlace pendiente) y ejecuta el `.exe`.
+| 📄 Archivo | 🎯 Función |
+|---|---|
+| `MenuJuego.cs` | Menú, estados de la partida, puntuación y secuencia de reseteo. |
+| `Movimiento.cs` | Movimiento y lanzamiento de la bola. |
 
-## Cómo abrir el proyecto
+## ▶️ Cómo jugarlo
 
-1. Instala Unity con el mismo número de versión que indica `ProjectSettings/ProjectVersion.txt`.
-2. Abre la carpeta del repositorio desde Unity Hub.
+1. Descarga el build para **Windows** desde la página del juego en itch.io (enlace pendiente).
+2. Descomprime el archivo `.zip`.
+3. Ejecuta el `.exe` y pulsa **Jugar**.
 
-## Documentación
+## 🧑‍💻 Cómo abrir el proyecto
 
-La memoria del proyecto, con la descripción técnica y el diario de desarrollo, está en [`docs/`](docs/).
+1. Instala **Unity** con la versión indicada en `ProjectSettings/ProjectVersion.txt`.
+2. Abre la carpeta del repositorio desde **Unity Hub**.
+3. Abre la escena principal y pulsa **Play**.
 
-## Créditos
+## 📎 Documentación
 
-- Modelo 3D de la bolera: *Bowling Club*, de tiunov.se.
-- Efectos de sonido: Pixabay (bola de bolos y strike).
-- Tutoriales de apoyo: *Unity Beginner Tutorial – Finishing the Game!* y *Bowling With The Unity Game Engine* (YouTube).
+La carpeta [`docs/`](docs/) incluye la **memoria** del proyecto: descripción general, descripción técnica, diario de desarrollo y bibliografía.
 
-Autora: Sandra Jiménez Ramiro
+## 🙌 Créditos
+
+* 🏟️ Modelo 3D de la bolera: *Bowling Club*, de tiunov.se.
+* 🔊 Efectos de sonido: Pixabay (bola de bolos y strike).
+* 📺 Tutoriales de apoyo: *Unity Beginner Tutorial – Finishing the Game!* y *Bowling With The Unity Game Engine* (YouTube).
+
+---
+🎓 *Práctica académica para trabajar físicas, colisiones, corrutinas y gestión de estados en Unity.*
