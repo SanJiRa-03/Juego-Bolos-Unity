@@ -42,7 +42,7 @@ Simulador de bolera desarrollado con **Unity 3D** y **C#**. El jugador mueve la 
 
 ## ▶️ Cómo jugarlo
 
-1. Descarga el build para **Windows** desde la página del juego en itch.io (enlace pendiente).
+1. Descarga el build para **Windows** desde su [página en itch.io](https://sandra-jimenez-ramiro.itch.io/juego-de-bolos-3d).
 2. Descomprime el archivo `.zip`.
 3. Ejecuta el `.exe` y pulsa **Jugar**.
 
